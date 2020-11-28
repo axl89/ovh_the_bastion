@@ -49,7 +49,7 @@ end
 bash "Update OVH The bastion to #{version}" do
   code <<-EOH
     umask 0022 && cd #{path} && git fetch && git checkout #{version}
-    #{path}/bin/admin/install --upgrade-managed
+    #{path}/bin/admin/install --managed-upgrade
   EOH
   not_if "cd #{path} && git status | grep 'HEAD detached at #{version}'"
   notifies :run, 'execute[Install ovh-ttyrec]', :immediately
