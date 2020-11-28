@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.1.1"></a>
+## [v0.1.1] - 2020-11-28
 ### Added
 - Added git-chlog to manage CHANGELOG
 - Added new MFAPasswordWarnDays config
@@ -26,4 +29,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.0...master
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.1...master
+[v0.1.1]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.0...v0.1.1
