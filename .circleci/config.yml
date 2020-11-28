@@ -10,3 +10,5 @@ workflows:
           name: lint-yaml
       - kitchen/danger:
           name: danger
+      - kitchen/dokken:
+          name: dokken
