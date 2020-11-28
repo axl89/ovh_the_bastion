@@ -1,4 +1,5 @@
 # ovh_the_bastion
 
-TODO: Enter the cookbook description here.
+Installs and configures [ovh/the-bastion]
 
+[ovh/the-bastion]: https://github.com/ovh/the-bastion
