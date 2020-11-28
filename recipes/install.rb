@@ -37,7 +37,7 @@ end
 bash "Download OVH The bastion #{version}" do
   code <<-EOH
     git clone https://github.com/ovh/the-bastion #{path}
-    git -C #{path} checkout #{version}
+    cd #{path} && git checkout #{version}
   EOH
   not_if { ::Dir.exist?(path) }
   notifies :run, 'execute[Install ovh-ttyrec]', :immediately
