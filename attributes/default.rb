@@ -47,7 +47,6 @@ default['ovh_the_bastion']['config']['accountCreateDefaultPersonalAccesses'] = [
 default['ovh_the_bastion']['config']['accountMFAPolicy'] = 'enabled'
 default['ovh_the_bastion']['config']['MFAPasswordMinDays'] = 0
 default['ovh_the_bastion']['config']['MFAPasswordMaxDays'] = 90
-default['ovh_the_bastion']['config']['MFAPasswordMaxDays'] = 15
 default['ovh_the_bastion']['config']['MFAPasswordInactiveDays'] = -1
 default['ovh_the_bastion']['config']['MFAPostCommand'] = []
 default['ovh_the_bastion']['config']['remoteCommandEscapeByDefault'] = 0
