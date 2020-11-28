@@ -12,3 +12,4 @@ workflows:
           name: danger
       - kitchen/dokken:
           name: dokken
+          suite: default
