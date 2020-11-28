@@ -221,6 +221,11 @@
 # DEFAULT: 90
 "MFAPasswordMaxDays": <%= node['ovh_the_bastion']['config']['MFAPasswordMaxDays'] %>,
 #
+# MFAPasswordWarnDays (int >= 0)
+#    DESC: For the PAM UNIX password MFA, sets the number of days before expiration on which the user will be warned to change his password (see `chage -W')
+# DEFAULT: 15
+"MFAPasswordWarnDays": <%= node['ovh_the_bastion']['config']['MFAPasswordWarnDays'] %>,
+#
 # MFAPasswordInactiveDays (int >= -1)
 #    DESC: For the PAM UNIX password MFA, the account will be blocked after the password is expired (and not renewed) for this amount of days (see `chage -E'). -1 disables this feature. Note that this is different from the accountMaxInactiveDays option above, that is handled by the bastion software itself instead of PAM
 # DEFAULT: -1
