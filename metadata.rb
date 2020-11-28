@@ -6,9 +6,9 @@ description 'Installs/Configures ovh_the_bastion'
 version '0.1.0'
 chef_version '>= 14.0'
 
-supports 'debian', '>= 8'
-supports 'centos', '>= 7'
-supports 'redhat', '>= 7'
+supports 'debian', '>= 8.0'
+supports 'centos', '>= 7.0'
+supports 'redhat', '>= 7.0'
 supports 'ubuntu', '>= 14.04'
 supports 'opensuseleap', '>= 15.0'
 

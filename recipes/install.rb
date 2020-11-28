@@ -22,8 +22,16 @@ path = node['ovh_the_bastion']['path']
 
 # Part 0: prerequisites
 
-## Install git
-package 'git'
+apt_update 'all platforms' do
+  action :nothing
+  only_if { platform_family?('debian') }
+end
+
+## Install git, curl
+package %w(git curl) do
+  action :install
+  notifies :update, 'apt_update[all platforms]', :before
+end
 
 ## Download the bastion
 bash "Download OVH The bastion #{version}" do
