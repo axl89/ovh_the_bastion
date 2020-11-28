@@ -10,4 +10,4 @@ workflows:
           name: lint-yaml
       - kitchen/danger:
           name: danger
-          context: Danger
+          context: Danger-Minimal
