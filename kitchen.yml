@@ -1,24 +1,60 @@
 ---
 driver:
-  name: vagrant
+  name: dokken
+  privileged: true  # because Docker and SystemD/Upstart
+  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+
+transport:
+  name: dokken
+  require_chef_omnibus: <%= ENV['CHEF_VERSION'] || 'latest' %>
 
 provisioner:
-  name: chef_zero
-  always_update_cookbooks: true
+  name: dokken
+  chef_license: accept-no-persist
 
 verifier:
   name: inspec
+  deprecations_as_errors: true
 
 platforms:
   - name: debian-10
+    driver:
+      image: dokken/debian-10
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
   - name: debian-9
+    driver:
+      image: dokken/debian-9
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
   - name: debian-8
-  - name: centos-7
+    driver:
+      image: dokken/debian-8
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
   - name: centos-8
+    driver:
+      image: dokken/centos-8A
+      pid_one_command: /usr/lib/systemd/systemd
+  - name: centos-7
+    driver:
+      image: dokken/centos-7
+      pid_one_command: /usr/lib/systemd/systemd
   - name: ubuntu-16.04
-  - name: ubuntu-18.04
+    driver:
+      image: dokken/ubuntu-16.04
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
   - name: ubuntu-20.04
-
+    driver:
+      image: dokken/ubuntu-20.04
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
 suites:
   - name: default
     run_list:
