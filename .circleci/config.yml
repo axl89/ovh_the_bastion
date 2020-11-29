@@ -8,8 +8,6 @@ workflows:
       # Lint and Unit Test
       - kitchen/yamllint:
           name: lint-yaml
-      - kitchen/danger:
-          name: danger
       - kitchen/dokken-single:
           name: dokken-single
           suite: default
