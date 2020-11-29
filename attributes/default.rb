@@ -2,14 +2,13 @@
 default['ovh_the_bastion']['version'] = 'v3.01.00'
 default['ovh_the_bastion']['path'] = '/opt/bastion'
 
-
 # See /opt/bastion/bin/admin/install --help
 default['ovh_the_bastion']['installation_options'] = ''
 
 # Optional packages
-default['ovh_the_bastion']['packages']['syslog-ng'] = true
+default['ovh_the_bastion']['packages']['syslog-ng'] = false
 default['ovh_the_bastion']['packages']['development'] = false
-default['ovh_the_bastion']['packages']['ovh-ttyrec'] = true
+default['ovh_the_bastion']['packages']['ovh-ttyrec'] = false
 
 # Values for bastion.conf file
 default['ovh_the_bastion']['config']['template_cookbook_name'] = 'ovh_the_bastion'
