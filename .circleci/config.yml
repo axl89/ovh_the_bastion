@@ -10,6 +10,6 @@ workflows:
           name: lint-yaml
       - kitchen/danger:
           name: danger
-      - kitchen/dokken:
-          name: dokken
+      - kitchen/dokken-single:
+          name: dokken-single
           suite: default
