@@ -2,6 +2,22 @@
 version: 2.1
 orbs:
   kitchen: sous-chefs/kitchen@2.1.1
+jobs:
+  cookstyle:
+    docker:
+      - image: chef/chefdk:4.9.17
+    steps:
+      - checkout
+      - run: chef env --chef-license accept-silent
+      - run: chef exec cookstyle .
+  foodcritic:
+    docker:
+      - image: chef/chefdk:4.9.17
+    steps:
+      - checkout
+      - run: chef env --chef-license accept-silent
+      - run: chef exec foodcritic .
+
 workflows:
   test:
     jobs:
@@ -11,3 +27,5 @@ workflows:
       - kitchen/dokken-single:
           name: dokken-single
           suite: default
+      - cookstyle
+      - foodcritic
