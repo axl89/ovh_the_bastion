@@ -3,14 +3,19 @@
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://www.inspec.io/docs/reference/resources/
 
-describe package('git') do
-  it { should be_installed }
+packages = %w(git curl ovh-ttyrec syslog-ng)
+
+packages.each do |package|
+  describe package(package) do
+    it { should be_installed }
+  end
 end
 
 describe directory('/opt/bastion') do
   it { should be_directory }
 end
 
-describe file('/etc/bastion/bastion.conf') do
-  it { should exist }
+describe bash('cd /opt/bastion && git status') do
+  its('exit_status') { should eq 0 }
+  its('stdout') { should match /HEAD detached at v3.01.00/ }
 end

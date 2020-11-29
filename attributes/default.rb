@@ -6,11 +6,12 @@ default['ovh_the_bastion']['path'] = '/opt/bastion'
 default['ovh_the_bastion']['installation_options'] = ''
 
 # Optional packages
-default['ovh_the_bastion']['packages']['syslog-ng'] = true
+default['ovh_the_bastion']['packages']['syslog-ng'] = false
 default['ovh_the_bastion']['packages']['development'] = false
-default['ovh_the_bastion']['packages']['ovh-ttyrec'] = true
+default['ovh_the_bastion']['packages']['ovh-ttyrec'] = false
 
 # Values for bastion.conf file
+default['ovh_the_bastion']['config']['template_cookbook_name'] = 'ovh_the_bastion'
 default['ovh_the_bastion']['config']['bastionName'] = 'fix-my-config-please-missing-bastion-name'
 default['ovh_the_bastion']['config']['bastionCommand'] = 'ssh USER@HOSTNAME -t -- '
 default['ovh_the_bastion']['config']['debug'] = 0

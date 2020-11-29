@@ -37,7 +37,7 @@ end
 bash "Download OVH The bastion #{version}" do
   code <<-EOH
     git clone https://github.com/ovh/the-bastion #{path}
-    git -C #{path} checkout #{version}
+    cd #{path} && git checkout #{version}
   EOH
   not_if { ::Dir.exist?(path) }
   notifies :run, 'execute[Install ovh-ttyrec]', :immediately
@@ -49,7 +49,7 @@ end
 bash "Update OVH The bastion to #{version}" do
   code <<-EOH
     umask 0022 && cd #{path} && git fetch && git checkout #{version}
-    #{path}/bin/admin/install --upgrade-managed
+    #{path}/bin/admin/install --managed-upgrade
   EOH
   not_if "cd #{path} && git status | grep 'HEAD detached at #{version}'"
   notifies :run, 'execute[Install ovh-ttyrec]', :immediately
@@ -85,10 +85,4 @@ end
 execute 'Upgrade OVH The bastion' do
   command "#{path}/bin/admin/install --managed-upgrade"
   action :nothing
-end
-
-# Part 2: configuration
-template 'Configure OVH The bastion' do
-  source 'bastion.conf.erb'
-  path '/etc/bastion/bastion.conf'
 end
