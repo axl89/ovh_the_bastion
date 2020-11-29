@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   kitchen: sous-chefs/kitchen@2.1.1
 workflows:
-  danger:
+  test:
     jobs:
       # Lint and Unit Test
       - kitchen/yamllint:
