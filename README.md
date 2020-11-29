@@ -5,8 +5,6 @@
 [![License](https://img.shields.io/badge/License-GPL%203.0-green.svg)](https://opensource.org/licenses/GPL-3.0)
 
 
-Chef cookbook that installs and configures .
-
 Installs [ovh/the-bastion] and sets up a fairly basic configuration. Since [ovh/the-bastion] is very complex, we provide a baseline only.
 
 ## Requirements
