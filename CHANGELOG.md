@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v1.0.0"></a>
+## [v1.0.0] - 2020-11-29
 ### Added
+- Added cookstyle and foodcritic steps for CI
+- Added amazonlinux-2 to CI
 - Added more tests
 - Added Ubuntu 18.04 to kitchen file
 - Added configure recipe and inSpec tests
@@ -16,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added circle-ci config file
 
 ### Changed
+- Changed CircleCI workflow name to test
+- Changed optional package attributes to false
+- Changed CI job to dokken-single
 - Changed CI to use custom attributes for testing purposes
 - Changed bastion.conf template to allow cookbook parametrization
 - Changed git to improve retrocompatibility
@@ -32,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed yamllint errors
 
 ### Removed
+- Removed Danger checks
 - Removed context
 - Removed markdown linting
 
@@ -57,5 +66,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.1...master
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.0...master
+[v1.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.1...v1.0.0
 [v0.1.1]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.0...v0.1.1
