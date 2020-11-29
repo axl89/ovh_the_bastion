@@ -1,6 +1,6 @@
 #
 # Cookbook:: ovh_the_bastion
-# Recipe:: default
+# Recipe:: configure
 #
 # Copyright:: 2020,  Axel Amigo
 #
@@ -17,8 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Part 0: installation
-include_recipe 'ovh_the_bastion::install'
-
-# Part 1: configuration
-include_recipe 'ovh_the_bastion::configure'
+template 'Configure OVH The bastion' do
+  cookbook node['ovh_the_bastion']['config']['template_cookbook_name']
+  source 'bastion.conf.erb'
+  path '/etc/bastion/bastion.conf'
+end

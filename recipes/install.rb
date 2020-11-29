@@ -86,9 +86,3 @@ execute 'Upgrade OVH The bastion' do
   command "#{path}/bin/admin/install --managed-upgrade"
   action :nothing
 end
-
-# Part 2: configuration
-template 'Configure OVH The bastion' do
-  source 'bastion.conf.erb'
-  path '/etc/bastion/bastion.conf'
-end
