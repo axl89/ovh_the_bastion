@@ -37,7 +37,7 @@ platforms:
         - RUN /usr/bin/apt-get update
   - name: centos-8
     driver:
-      image: dokken/centos-8A
+      image: dokken/centos-8
       pid_one_command: /usr/lib/systemd/systemd
   - name: centos-7
     driver:
