@@ -67,5 +67,9 @@ suites:
         - test/integration/default
     attributes:
       ovh_the_bastion:
+        packages:
+          syslog-ng: true
+          ovh-ttyrec: true
+        version: 'v3.01.00'
         # Required for being able to access the box after installing the bastion
         installation_options: '--no-modify-sshd-config --no-modify-ssh-config'
