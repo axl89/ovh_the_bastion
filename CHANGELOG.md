@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Added
+- Added more tests
+- Added Ubuntu 18.04 to kitchen file
+- Added configure recipe and inSpec tests
+- Added dokken tests to CI
+- Added Dangerfile from sous-chefs
+- Added circle-ci config file
+
+### Changed
+- Changed CI to use custom attributes for testing purposes
+- Changed bastion.conf template to allow cookbook parametrization
+- Changed git to improve retrocompatibility
+- Changed kitchen to use dokken instead of Vagrant
+- Changed context
+- Changed Dangerfile
+- Changed orb version pinning to 2.1.1
+- Changed circle-ci config to Sous Chef
+
+### Fixed
+- Fixed wrong dokken image name
+- Fixed dokken workflow required parameter
+- Fixed wrong parameter
+- Fixed yamllint errors
+
+### Removed
+- Removed context
+- Removed markdown linting
+
 
 <a name="v0.1.1"></a>
 ## [v0.1.1] - 2020-11-28
