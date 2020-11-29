@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed circle-ci config to Sous Chef
 
 ### Fixed
+- Fixed CI not being able to remove containers
 - Fixed wrong dokken image name
 - Fixed dokken workflow required parameter
 - Fixed wrong parameter
