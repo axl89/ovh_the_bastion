@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Added
+- Added openSUSE Leap 15.X to CI
+
 ### Changed
 - Changed README.md to be more awesome
 
