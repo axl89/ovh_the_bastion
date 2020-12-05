@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="v1.0.2"></a>
+## [v1.0.2] - 2020-12-05
+### Fixed
+- Fixed default values in comments.
+- Fixed ttyrecFilenameFormat attribute missing
+
+
 <a name="v1.0.1"></a>
 ## [v1.0.1] - 2020-12-05
 ### Added
@@ -82,7 +89,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.1...master
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.2...master
+[v1.0.2]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.1...v1.0.0
 [v0.1.1]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.0...v0.1.1
