@@ -96,7 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.2...master
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.2...main
 [v1.0.2]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.1...v1.0.0
