@@ -23,3 +23,5 @@ issues_url 'https://github.com/axl89/ovh_the_bastion/issues'
 # a Supermarket.
 #
 source_url 'https://github.com/axl89/ovh_the_bastion'
+
+depends 'yum-epel'
