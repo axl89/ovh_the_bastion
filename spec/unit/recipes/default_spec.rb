@@ -22,14 +22,12 @@ require 'spec_helper'
 platforms = ['Ubuntu 18.04', 'Ubuntu 20.04', 'Debian 10', 'Debian 9', 'Debian 8', 'Centos 7', 'Amazon 2']
 
 platforms.each do |platform|
-  
   describe 'ovh_the_bastion::default' do
     platform_name = platform.split[0].downcase
     platform_version = platform.split[1].downcase
     platform platform_name, platform_version
 
     context "When all attributes are default, on #{platform_name} #{platform_version}" do
-
       it 'converges successfully' do
         stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
         expect { chef_run }.to_not raise_error

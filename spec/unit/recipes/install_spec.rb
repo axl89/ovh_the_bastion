@@ -19,24 +19,27 @@
 
 require 'spec_helper'
 
-describe 'ovh_the_bastion::install' do
-  context 'When all attributes are default, on Ubuntu 18.04' do
-    # for a complete list of available platforms and versions see:
-    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
-    platform 'ubuntu', '18.04'
+platforms = ['Ubuntu 18.04', 'Ubuntu 20.04', 'Debian 10', 'Debian 9', 'Debian 8', 'Centos 7', 'Amazon 2']
 
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
+platforms.each do |platform|
+  describe 'ovh_the_bastion::install' do
+    platform_name = platform.split[0].downcase
+    platform_version = platform.split[1].downcase
+    platform platform_name, platform_version
+
+    let(:chef_run) { ChefSpec::SoloRunner.new(platform: platform_name, version: platform_version).converge(described_recipe) }
+    let(:package) { chef_run.package(%w(git curl)) }
+
+    it 'Notifies apt_update resource' do
+      stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
+      expect(package).to notify('apt_update[all platforms]')
     end
-  end
 
-  context 'When all attributes are default, on CentOS 7' do
-    # for a complete list of available platforms and versions see:
-    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
-    platform 'centos', '7'
-
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
+    context "When all attributes are default, on #{platform_name} #{platform_version}" do
+      it 'converges successfully' do
+        stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
+        expect { chef_run }.to_not raise_error
+      end
     end
   end
 end
