@@ -14,18 +14,18 @@ Installs [ovh/the-bastion] and sets up its [default configuration].
 
 - Debian 8+
 - Ubuntu 14.04+
-- RHEL 7.x and 8.x w/ (EPEL is enabled as required)
+- RHEL 7.x and 8.x
 - Amazon Linux 2 (EPEL is enabled as required)
 - CentOS 7.x, 8.x
 - OpenSUSE Leap 15.x
 
 ### Cookbooks
 
-None :smile:
+- yum-epel
 
 ## Attributes
 
-These attributes are set by the cookbook by default.
+These attributes are set by the cookbook, following the program's [default configuration]:
 
 - `node['ovh_the_bastion']['version']` - Version of [ovh/the-bastion] to be installed or updated to.
 - `node['ovh_the_bastion']['path']` - Path to install [ovh/the-bastion] software.
