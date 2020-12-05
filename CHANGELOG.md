@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Added
+- Added application configuration checks
+- Added attribute's missing description
+
+### Changed
+- Changed kitchen suite name
+
 
 <a name="v1.0.2"></a>
 ## [v1.0.2] - 2020-12-05
