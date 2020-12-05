@@ -5,7 +5,8 @@
 [![License](https://img.shields.io/badge/License-GPL%203.0-green.svg)](https://opensource.org/licenses/GPL-3.0)
 
 
-Installs [ovh/the-bastion] and sets up a fairly basic configuration. Since [ovh/the-bastion] is very complex, we provide a baseline only.
+Installs [ovh/the-bastion] and sets up its [default configuration].
+
 
 ## Requirements
 
@@ -13,25 +14,25 @@ Installs [ovh/the-bastion] and sets up a fairly basic configuration. Since [ovh/
 
 - Debian 8+
 - Ubuntu 14.04+
-- RHEL 7.x and 8.x w/ (EPEL is enabled as required)
+- RHEL 7.x and 8.x
 - Amazon Linux 2 (EPEL is enabled as required)
 - CentOS 7.x, 8.x
 - OpenSUSE Leap 15.x
 
 ### Cookbooks
 
-None :smile:
+- yum-epel
 
 ## Attributes
 
-These attributes are set by the cookbook by default.
+These attributes are set by the cookbook, following the program's [default configuration]:
 
 - `node['ovh_the_bastion']['version']` - Version of [ovh/the-bastion] to be installed or updated to.
 - `node['ovh_the_bastion']['path']` - Path to install [ovh/the-bastion] software.
 - `node['ovh_the_bastion']['installation_options']` - Additional parameters to pass to the installation script. See `/opt/bastion/bin/admin/install --help`.
 - `node['ovh_the_bastion']['packages']['syslog-ng']` - Whether to install `syslog-ng` or not.
-- `node['ovh_the_bastion']['packages']['development']` - Whether to install packages needed for developing the software (useless in production).
-- `node['ovh_the_bastion']['packages']['ovh-ttyrec']` - Whether to install `ovh-ttyrec`.
+- `node['ovh_the_bastion']['packages']['development']` - Whether to install packages needed for developing the software or not (useless in production).
+- `node['ovh_the_bastion']['packages']['ovh-ttyrec']` - Whether to install `ovh-ttyrec` or not.
 - `node['ovh_the_bastion']['config']['template_cookbook_name']` - The cookbook in which the `bastion.conf.erb` template file is located.
 - `node['ovh_the_bastion']['config']['bastionName']` - This will be the name advertised in the aliases admins will give to bastion users, you can see it as a friendly name everybody will use to refer to this machine (try to avoid using the full hostname here).
 - `node['ovh_the_bastion']['config']['bastionCommand']` - The ssh command to launch to connect to this bastion as a user. This will be printed on accountCreate, so that the new user knows how to connect. Magic values are ACCOUNT (replaced at runtime by the account name), BASTIONNAME (replaced at runtime by the name defined in `bastionName'), HOSTNAME (replaced at runtime by the hostname of the system, namely what is returned by `perl -MSys::Hostname -e 'print hostname'`). Note that previous magic values where USER (=ACCOUNT) and CACHENAME (=BASTIONNAME), they're still supported.
@@ -107,14 +108,16 @@ Installs and configures [ovh/the-bastion].
 
 ### `ovh_the_bastion::install`
 
-Installs the ovh_the_bastion software only.
+Installs the [ovh/the-bastion] software only.
 
 ### `ovh_the_bastion::configure`
 
-Configures the ovh_the_bastion software only.
+Configures the [ovh/the-bastion] software.
 
-[ovh/the-bastion]: https://github.com/ovh/the-bastion
 
 ## Usage
 
 Normally you would add the `ovh_the_bastion::default` with a custom set of attributes specified directly to the node, or through a role, environment, etc.
+
+[ovh/the-bastion]: https://github.com/ovh/the-bastion
+[default configuration]: https://github.com/ovh/the-bastion/blob/master/etc/bastion/bastion.conf.dist
