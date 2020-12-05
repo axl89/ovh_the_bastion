@@ -50,7 +50,7 @@ platforms:
       image: dokken/opensuse-leap-15
       pid_one_command: /bin/systemd
 suites:
-  - name: default
+  - name: normal
     run_list:
       - recipe[ovh_the_bastion::default]
     verifier:
