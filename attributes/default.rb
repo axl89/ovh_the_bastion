@@ -74,5 +74,6 @@ default['ovh_the_bastion']['config']['idleLockTimeout'] = 0
 default['ovh_the_bastion']['config']['idleKillTimeout'] = 0
 default['ovh_the_bastion']['config']['warnBeforeLockSeconds'] = 0
 default['ovh_the_bastion']['config']['warnBeforeKillSeconds'] = 0
+default['ovh_the_bastion']['config']['ttyrecFilenameFormat'] = '%Y-%m-%d.%H-%M-%S.#usec#.&uniqid.&account.&user.&ip.&port.ttyrec'
 default['ovh_the_bastion']['config']['ttyrecAdditionalParameters'] = []
 default['ovh_the_bastion']['config']['documentationURL'] = 'https://ovh.github.io/the-bastion/'
