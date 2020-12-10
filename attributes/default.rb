@@ -1,5 +1,5 @@
 # Basic attributes
-default['ovh_the_bastion']['version'] = 'v3.01.01'
+default['ovh_the_bastion']['version'] = 'v3.01.02'
 default['ovh_the_bastion']['path'] = '/opt/bastion'
 
 # See /opt/bastion/bin/admin/install --help
