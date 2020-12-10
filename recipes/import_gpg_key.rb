@@ -42,7 +42,7 @@ bash 'Importing the admins GPG key' do
   code <<-EOH
     echo '#{base64_gpg_key}' | base64 -d | #{path}/bin/admin/setup-gpg.sh --import
   EOH
-  sensitive false
+  sensitive true
   timeout 3600
   user 'root'
   group 'root'
