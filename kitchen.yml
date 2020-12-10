@@ -10,6 +10,7 @@ transport:
 provisioner:
   name: dokken
   chef_license: accept-no-persist
+  data_bags_path: "./test/integration/data_bags"
 
 verifier:
   name: inspec
@@ -53,6 +54,7 @@ suites:
   - name: default
     run_list:
       - recipe[ovh_the_bastion::default]
+      - recipe[ovh_the_bastion::import_gpg_key]
     verifier:
       inspec_tests:
         - test/integration/default
