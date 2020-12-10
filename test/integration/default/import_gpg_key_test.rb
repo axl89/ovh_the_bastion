@@ -13,11 +13,11 @@ end
 
 files = [
   '/etc/bastion/osh-encrypt-rsync.conf.d/50-gpg-admins-key.conf',
-  '/etc/bastion/osh-backup-acl-keys.conf.d/50-gpg.conf'
+  '/etc/bastion/osh-backup-acl-keys.conf.d/50-gpg.conf',
 ]
 
 files.each do |file|
-  describe file(file  ) do
+  describe file(file) do
     it { should exist }
   end
 end
