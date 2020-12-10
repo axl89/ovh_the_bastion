@@ -115,6 +115,9 @@ Installs the [ovh/the-bastion] software only.
 
 Configures the [ovh/the-bastion] software.
 
+### `ovh_the_bastion::import_gpg_key`
+
+Imports the admins public GPG key used by the bastion to encrypt the backups and the ttyrec files. See [Encryption & signature GPG keys](https://ovh.github.io/the-bastion/installation/advanced.html#encryption-signature-gpg-keys).
 
 ## Usage
 
