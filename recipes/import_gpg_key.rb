@@ -25,7 +25,7 @@ apt_update 'all platforms' do
   only_if { platform_family?('debian') }
 end
 
-package 'gpg' do
+package 'gnupg2' do
   action :install
   notifies :update, 'apt_update[all platforms]', :before
 end
