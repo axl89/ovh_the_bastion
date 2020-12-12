@@ -1,5 +1,5 @@
 # Basic attributes
-default['ovh_the_bastion']['version'] = 'v3.01.01'
+default['ovh_the_bastion']['version'] = 'v3.01.02'
 default['ovh_the_bastion']['path'] = '/opt/bastion'
 
 # See /opt/bastion/bin/admin/install --help
@@ -77,3 +77,5 @@ default['ovh_the_bastion']['config']['warnBeforeKillSeconds'] = 0
 default['ovh_the_bastion']['config']['ttyrecFilenameFormat'] = '%Y-%m-%d.%H-%M-%S.#usec#.&uniqid.&account.&user.&ip.&port.ttyrec'
 default['ovh_the_bastion']['config']['ttyrecAdditionalParameters'] = []
 default['ovh_the_bastion']['config']['documentationURL'] = 'https://ovh.github.io/the-bastion/'
+default['ovh_the_bastion']['gpg_data_bag_name'] = 'gpg_databag'
+default['ovh_the_bastion']['gpg_data_bag_item'] = 'admin_gpg'

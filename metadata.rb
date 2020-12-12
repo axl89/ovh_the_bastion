@@ -2,7 +2,7 @@ name 'ovh_the_bastion'
 maintainer 'Axel Amigo'
 maintainer_email 'axl89@users.noreply.github.com'
 license 'GPL-3.0'
-description 'Installs/Configures ovh_the_bastion'
+description 'Installs and configures ovh/the-bastion software'
 version '1.0.2'
 chef_version '>= 14.0'
 
