@@ -3,7 +3,7 @@
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://www.inspec.io/docs/reference/resources/
 
-packages = %w(gpg)
+packages = %w(gnupg2)
 
 packages.each do |package|
   describe package(package) do
