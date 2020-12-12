@@ -25,7 +25,13 @@ apt_update 'all platforms' do
   only_if { platform_family?('debian') }
 end
 
-package 'gnupg2' do
+package_name = if platform?('opensuseleap')
+                 'gpg2'
+               else
+                 'gnupg2'
+               end
+
+package package_name do
   action :install
   notifies :update, 'apt_update[all platforms]', :before
 end

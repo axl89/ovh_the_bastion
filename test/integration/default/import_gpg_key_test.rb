@@ -3,12 +3,14 @@
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://www.inspec.io/docs/reference/resources/
 
-packages = %w(gnupg2)
+package_name = if os.family == 'suse'
+                 'gpg2'
+               else
+                 'gnupg2'
+               end
 
-packages.each do |package|
-  describe package(package) do
-    it { should be_installed }
-  end
+describe package(package_name) do
+  it { should be_installed }
 end
 
 files = [
