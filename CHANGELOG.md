@@ -7,12 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v1.1.0"></a>
+## [v1.1.0] - 2020-12-12
 ### Added
+- Added import_gpg_key recipe
 - Added application configuration checks
 - Added attribute's missing description
 
 ### Changed
 - Changed kitchen suite name
+
+### Fixed
+- Fixed git-chlog default branch
 
 
 <a name="v1.0.2"></a>
@@ -96,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.2...main
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v1.1.0...main
+[v1.1.0]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.2...v1.1.0
 [v1.0.2]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v0.1.1...v1.0.0

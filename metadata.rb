@@ -3,7 +3,7 @@ maintainer 'Axel Amigo'
 maintainer_email 'axl89@users.noreply.github.com'
 license 'GPL-3.0'
 description 'Installs and configures ovh/the-bastion software'
-version '1.0.2'
+version '1.1.0'
 chef_version '>= 14.0'
 
 supports 'debian', '>= 8.0'
