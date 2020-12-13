@@ -10,6 +10,7 @@ transport:
 provisioner:
   name: dokken
   chef_license: accept-no-persist
+  data_bags_path: "./test/integration/data_bags"
 
 verifier:
   name: inspec
@@ -19,23 +20,15 @@ platforms:
   - name: amazonlinux-2
     driver:
       image: dokken/amazonlinux-2
-      intermediate_instructions:
-        - RUN amazon-linux-extras install epel -y
   - name: debian-10
     driver:
       image: dokken/debian-10
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
   - name: debian-9
     driver:
       image: dokken/debian-9
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
   - name: debian-8
     driver:
       image: dokken/debian-8
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
   - name: centos-8
     driver:
       image: dokken/centos-8
@@ -47,8 +40,6 @@ platforms:
   - name: ubuntu-16.04
     driver:
       image: dokken/ubuntu-16.04
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
   - name: ubuntu-18.04
     driver:
       image: dokken/ubuntu-18.04
@@ -63,6 +54,7 @@ suites:
   - name: default
     run_list:
       - recipe[ovh_the_bastion::default]
+      - recipe[ovh_the_bastion::import_gpg_key]
     verifier:
       inspec_tests:
         - test/integration/default
@@ -71,6 +63,6 @@ suites:
         packages:
           syslog-ng: true
           ovh-ttyrec: true
-        version: 'v3.01.00'
+        version: 'v3.01.02'
         # Required for being able to access the box after installing the bastion
         installation_options: '--no-modify-sshd-config --no-modify-ssh-config'

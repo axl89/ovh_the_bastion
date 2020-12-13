@@ -2,8 +2,8 @@ name 'ovh_the_bastion'
 maintainer 'Axel Amigo'
 maintainer_email 'axl89@users.noreply.github.com'
 license 'GPL-3.0'
-description 'Installs/Configures ovh_the_bastion'
-version '1.0.0'
+description 'Installs and configures ovh/the-bastion software'
+version '1.1.0'
 chef_version '>= 14.0'
 
 supports 'debian', '>= 8.0'
@@ -23,3 +23,5 @@ issues_url 'https://github.com/axl89/ovh_the_bastion/issues'
 # a Supermarket.
 #
 source_url 'https://github.com/axl89/ovh_the_bastion'
+
+depends 'yum-epel'

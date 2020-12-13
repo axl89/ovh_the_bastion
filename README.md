@@ -5,7 +5,8 @@
 [![License](https://img.shields.io/badge/License-GPL%203.0-green.svg)](https://opensource.org/licenses/GPL-3.0)
 
 
-Installs [ovh/the-bastion] and sets up a fairly basic configuration. Since [ovh/the-bastion] is very complex, we provide a baseline only.
+Installs [ovh/the-bastion] and sets up its [default configuration].
+
 
 ## Requirements
 
@@ -13,25 +14,25 @@ Installs [ovh/the-bastion] and sets up a fairly basic configuration. Since [ovh/
 
 - Debian 8+
 - Ubuntu 14.04+
-- RHEL 7.x and 8.x w/ (EPEL is enabled as required)
+- RHEL 7.x and 8.x
 - Amazon Linux 2 (EPEL is enabled as required)
 - CentOS 7.x, 8.x
 - OpenSUSE Leap 15.x
 
 ### Cookbooks
 
-None :smile:
+- yum-epel
 
 ## Attributes
 
-These attributes are set by the cookbook by default.
+These attributes are set by the cookbook, following the program's [default configuration]:
 
 - `node['ovh_the_bastion']['version']` - Version of [ovh/the-bastion] to be installed or updated to.
 - `node['ovh_the_bastion']['path']` - Path to install [ovh/the-bastion] software.
 - `node['ovh_the_bastion']['installation_options']` - Additional parameters to pass to the installation script. See `/opt/bastion/bin/admin/install --help`.
 - `node['ovh_the_bastion']['packages']['syslog-ng']` - Whether to install `syslog-ng` or not.
-- `node['ovh_the_bastion']['packages']['development']` - Whether to install packages needed for developing the software (useless in production).
-- `node['ovh_the_bastion']['packages']['ovh-ttyrec']` - Whether to install `ovh-ttyrec`.
+- `node['ovh_the_bastion']['packages']['development']` - Whether to install packages needed for developing the software or not (useless in production).
+- `node['ovh_the_bastion']['packages']['ovh-ttyrec']` - Whether to install `ovh-ttyrec` or not.
 - `node['ovh_the_bastion']['config']['template_cookbook_name']` - The cookbook in which the `bastion.conf.erb` template file is located.
 - `node['ovh_the_bastion']['config']['bastionName']` - This will be the name advertised in the aliases admins will give to bastion users, you can see it as a friendly name everybody will use to refer to this machine (try to avoid using the full hostname here).
 - `node['ovh_the_bastion']['config']['bastionCommand']` - The ssh command to launch to connect to this bastion as a user. This will be printed on accountCreate, so that the new user knows how to connect. Magic values are ACCOUNT (replaced at runtime by the account name), BASTIONNAME (replaced at runtime by the name defined in `bastionName'), HOSTNAME (replaced at runtime by the hostname of the system, namely what is returned by `perl -MSys::Hostname -e 'print hostname'`). Note that previous magic values where USER (=ACCOUNT) and CACHENAME (=BASTIONNAME), they're still supported.
@@ -95,6 +96,7 @@ These attributes are set by the cookbook by default.
 - `node['ovh_the_bastion']['config']['idleKillTimeout']` - If set to a positive value >0, the number of seconds of input idle time after which the session is killed. If 0, disabled. If idleLockTimeout is set, this value must be higher (obviously).
 - `node['ovh_the_bastion']['config']['warnBeforeLockSeconds']` - If set to a positive value >0, the number of seconds before idleLockTimeout where the user will receive a warning message telling him about the upcoming lock of his session.
 - `node['ovh_the_bastion']['config']['warnBeforeKillSeconds']` - If set to a positive value >0, the number of seconds before idleKillTimeout where the user will receive a warning message telling him about the upcoming kill of his session.
+- `node['ovh_the_bastion']['config']['ttyrecFilenameFormat']` - Sets the filename format of the output files of ttyrec for a given session. Magic tokens are: &bastionname, &uniqid, &account, &ip, &port, &user (they'll be replaced by the corresponding values of the current session). Then, this string (automatically prepended with the correct folder) will be passed to ttyrec's -F parameter, which uses strftime() to expand it, so the usual character conversions will be done (%Y for the year, %H for the hour, etc., see man strftime). Note that in a addition to the usual strftime() conversion specifications, ttyrec also supports #usec#, to be replaced by the current microsecond value of the time.
 - `node['ovh_the_bastion']['config']['ttyrecAdditionalParameters']` - Additional parameters you want to pass to ttyrec invocation. Useful, for example, to enable on-the-fly compression, disable cheatcodes, or set/unset any other ttyrec option. This is an ARRAY, not a string. e.g. ["-s", "This is a message with spaces", "--zstd"].
 - `node['ovh_the_bastion']['config']['documentationURL']` - The URL of the documentation where users will be pointed to, for example when displaying help. If you have some internal documentation about the bastion, you might want to advertise it here.
 
@@ -107,14 +109,19 @@ Installs and configures [ovh/the-bastion].
 
 ### `ovh_the_bastion::install`
 
-Installs the ovh_the_bastion software only.
+Installs the [ovh/the-bastion] software only.
 
 ### `ovh_the_bastion::configure`
 
-Configures the ovh_the_bastion software only.
+Configures the [ovh/the-bastion] software.
 
-[ovh/the-bastion]: https://github.com/ovh/the-bastion
+### `ovh_the_bastion::import_gpg_key`
+
+Imports the admins public GPG key used by the bastion to encrypt the backups and the ttyrec files. See [Encryption & signature GPG keys](https://ovh.github.io/the-bastion/installation/advanced.html#encryption-signature-gpg-keys).
 
 ## Usage
 
 Normally you would add the `ovh_the_bastion::default` with a custom set of attributes specified directly to the node, or through a role, environment, etc.
+
+[ovh/the-bastion]: https://github.com/ovh/the-bastion
+[default configuration]: https://github.com/ovh/the-bastion/blob/master/etc/bastion/bastion.conf.dist

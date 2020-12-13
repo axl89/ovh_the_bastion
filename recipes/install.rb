@@ -22,6 +22,8 @@ path = node['ovh_the_bastion']['path']
 
 # Part 0: prerequisites
 
+include_recipe 'yum-epel' if platform?('amazon')
+
 apt_update 'all platforms' do
   action :nothing
   only_if { platform_family?('debian') }
