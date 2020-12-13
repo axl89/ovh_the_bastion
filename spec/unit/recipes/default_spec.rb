@@ -29,7 +29,7 @@ platforms.each do |platform|
 
     context "When all attributes are default, on #{platform_name} #{platform_version}" do
       it 'converges successfully' do
-        stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
+        stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.02'").and_return(0)
         expect { chef_run }.to_not raise_error
       end
 
@@ -37,7 +37,7 @@ platforms.each do |platform|
 
       recipes_that_should_include.each do |recipe|
         it "Includes #{recipe} recipe" do
-          stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
+          stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.02'").and_return(0)
           expect(chef_run).to include_recipe(recipe)
         end
       end

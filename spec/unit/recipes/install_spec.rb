@@ -31,13 +31,13 @@ platforms.each do |platform|
     let(:package) { chef_run.package(%w(git curl)) }
 
     it 'Notifies apt_update resource' do
-      stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
+      stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.02'").and_return(0)
       expect(package).to notify('apt_update[all platforms]')
     end
 
     context "When all attributes are default, on #{platform_name} #{platform_version}" do
       it 'converges successfully' do
-        stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.00'").and_return(0)
+        stub_command("cd /opt/bastion && git status | grep 'HEAD detached at v3.01.02'").and_return(0)
         expect { chef_run }.to_not raise_error
       end
     end
