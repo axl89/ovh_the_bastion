@@ -19,24 +19,21 @@
 
 require 'spec_helper'
 
-describe 'ovh_the_bastion::configure' do
-  context 'When all attributes are default, on Ubuntu 18.04' do
-    # for a complete list of available platforms and versions see:
-    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
-    platform 'ubuntu', '18.04'
+platforms = ['OpenSUSE 15.0', 'OpenSUSE 15.1', 'OpenSUSE 15.2', 'Ubuntu 14.04', 'Ubuntu 16.04', 'Ubuntu 18.04', 'Ubuntu 20.04', 'Debian 10', 'Debian 9', 'Debian 8', 'Centos 7', 'Amazon 2']
 
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
-  end
+platforms.each do |platform|
+  describe 'ovh_the_bastion::configure' do
+    platform_name = platform.split[0].downcase
+    platform_version = platform.split[1].downcase
+    platform platform_name, platform_version
 
-  context 'When all attributes are default, on CentOS 7' do
-    # for a complete list of available platforms and versions see:
-    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
-    platform 'centos', '7'
-
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
+    context "When all attributes are default, on #{platform_name} #{platform_version}" do
+      it 'converges successfully' do
+        expect { chef_run }.to_not raise_error
+      end
+      it 'creates the bastion.conf template' do
+        expect(chef_run).to create_template('Configure OVH The bastion')
+      end
     end
   end
 end

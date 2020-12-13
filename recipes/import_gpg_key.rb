@@ -44,10 +44,8 @@ data_bag_item_name = node['ovh_the_bastion']['gpg_data_bag_item']
 base64_gpg_key = data_bag_item(data_bag_name, data_bag_item_name)['public_key']
 
 # Part 2: actually import the GPG key
-bash 'Importing the admins GPG key' do
-  code <<-EOH
-    echo '#{base64_gpg_key}' | base64 -d | #{path}/bin/admin/setup-gpg.sh --import
-  EOH
+execute 'Importing the admins GPG key' do
+  command "echo '#{base64_gpg_key}' | base64 -d | #{path}/bin/admin/setup-gpg.sh --import"
   sensitive true
   timeout 3600
   user 'root'
