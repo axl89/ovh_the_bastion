@@ -21,4 +21,7 @@ template 'Configure OVH The bastion' do
   cookbook node['ovh_the_bastion']['config']['template_cookbook_name']
   source 'bastion.conf.erb'
   path '/etc/bastion/bastion.conf'
+  variables(
+    bastion_config: node['ovh_the_bastion']['config']
+  )
 end
