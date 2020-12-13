@@ -19,7 +19,7 @@
 
 require 'spec_helper'
 
-platforms = ['Ubuntu 18.04', 'Ubuntu 20.04', 'Debian 10', 'Debian 9', 'Debian 8', 'Centos 7', 'Amazon 2']
+platforms = ['OpenSUSE 15.0', 'OpenSUSE 15.1', 'OpenSUSE 15.2', 'Ubuntu 14.04', 'Ubuntu 16.04', 'Ubuntu 18.04', 'Ubuntu 20.04', 'Debian 10', 'Debian 9', 'Debian 8', 'Centos 7', 'Amazon 2']
 
 platforms.each do |platform|
   describe 'ovh_the_bastion::import_gpg_key' do
