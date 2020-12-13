@@ -1,6 +1,8 @@
 # Basic attributes
 default['ovh_the_bastion']['version'] = 'v3.01.02'
 default['ovh_the_bastion']['path'] = '/opt/bastion'
+default['ovh_the_bastion']['gpg_data_bag_name'] = 'gpg_databag'
+default['ovh_the_bastion']['gpg_data_bag_item'] = 'admin_gpg'
 
 # See /opt/bastion/bin/admin/install --help
 default['ovh_the_bastion']['installation_options'] = ''
@@ -10,7 +12,9 @@ default['ovh_the_bastion']['packages']['syslog-ng'] = false
 default['ovh_the_bastion']['packages']['development'] = false
 default['ovh_the_bastion']['packages']['ovh-ttyrec'] = false
 
-# Values for bastion.conf file
+# Values for bastion.conf file.
+# See https://github.com/ovh/the-bastion/blob/master/etc/bastion/bastion.conf.dist
+# for documentation.
 default['ovh_the_bastion']['config']['template_cookbook_name'] = 'ovh_the_bastion'
 default['ovh_the_bastion']['config']['bastionName'] = 'fix-my-config-please-missing-bastion-name'
 default['ovh_the_bastion']['config']['bastionCommand'] = 'ssh USER@HOSTNAME -t -- '
@@ -77,5 +81,3 @@ default['ovh_the_bastion']['config']['warnBeforeKillSeconds'] = 0
 default['ovh_the_bastion']['config']['ttyrecFilenameFormat'] = '%Y-%m-%d.%H-%M-%S.#usec#.&uniqid.&account.&user.&ip.&port.ttyrec'
 default['ovh_the_bastion']['config']['ttyrecAdditionalParameters'] = []
 default['ovh_the_bastion']['config']['documentationURL'] = 'https://ovh.github.io/the-bastion/'
-default['ovh_the_bastion']['gpg_data_bag_name'] = 'gpg_databag'
-default['ovh_the_bastion']['gpg_data_bag_item'] = 'admin_gpg'
