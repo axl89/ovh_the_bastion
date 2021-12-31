@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+<a name="v2.0.2"></a>
+## [v2.0.2] - 2021-12-31
+
+### Fixed
+- Boolean attributes being interpolated as strings on `bastion.conf` file.
+
 <a name="v2.0.1"></a>
 ## [v2.0.1] - 2021-12-31
 
@@ -15,7 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated `bastion.conf` template  with the new parameters in `3.07.00`.
-
 
 <a name="v2.0.0"></a>
 ## [v2.0.0] - 2021-12-31
@@ -129,7 +134,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.1...main
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.2...main
+[v2.0.2]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v1.1.0...v2.0.0
 [v1.1.0]: https://github.com/axl89/ovh_the_bastion/compare/v1.0.2...v1.1.0

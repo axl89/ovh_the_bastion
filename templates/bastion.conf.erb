@@ -32,7 +32,7 @@
 # readOnlySlaveMode (boolean)
 #     DESC: If set to ``false``, this bastion will work in standalone mode, or will be the master in a master/slave mode. If set to ``true``, this'll be the slave which means all plugins that modify groups, accounts, or access rights will be disabled, and the master bastion will push its modifications using inotify/rsync, please refer do the documentation to set this up.
 #  DEFAULT: false
-"readOnlySlaveMode": "<%= node['ovh_the_bastion']['config']['readOnlySlaveMode'] %>",
+"readOnlySlaveMode": <%= node['ovh_the_bastion']['config']['readOnlySlaveMode'] %>,
 #
 # adminAccounts (array of strings (account names))
 #     DESC: The list of accounts that are Admins of the bastion. Admins can't be deleted or otherwise modified by non-admins. They also gain access to special dangerous/sensitive ``--osh`` commands, such as being able to impersonate anybody else. Note that an Admin is also always considered as a Super Owner, which means they also override all checks of group administrative commands. Don't forget to add them to the ``osh-admin`` group too (system-wise), or they won't really be considered as Admins: this is an additional security measure against privilege escalation. Rule of thumb: it's probably a good idea to only add here people that have ``root`` access to the bastion machine itself.
@@ -91,7 +91,7 @@
 # moshAllowed (boolean)
 #     DESC: If set to ``true``, mosh usage is allowed (mosh needs to be installed on serverside, obviously). Otherwise, this feature is disabled.
 #  DEFAULT: false
-"moshAllowed": "<%= node['ovh_the_bastion']['config']['moshAllowed'] %>",
+"moshAllowed": <%= node['ovh_the_bastion']['config']['moshAllowed'] %>,
 #
 # moshTimeoutNetwork (int > 0)
 #     DESC: Number of seconds of inactivity (network-wise) after a mosh-server will exit. By design even if the client is disconnected "for good", mosh-server would wait forever. If mosh is meant to handle shaky connections but not mobility, you can set this to a low value. It sets the ``MOSH_SERVER_NETWORK_TMOUT`` envvar for mosh, see ``man mosh-server`` for more information (mosh 1.2.6+).
@@ -167,7 +167,7 @@
 # enableSyslog (boolean)
 #     DESC: If enabled, we'll send logs through syslog, don't forget to setup your syslog daemon!. You can also adjust ``syslogFacility`` and ``syslogDescription`` below, to match your syslog configuration. Note that the provided ``syslog-ng`` templates work with the default values left as-is.
 #  DEFAULT: true
-"enableSyslog": "<%= node['ovh_the_bastion']['config']['enableSyslog'] %>",
+"enableSyslog": <%= node['ovh_the_bastion']['config']['enableSyslog'] %>,
 #
 # syslogFacility (string)
 #     DESC: Sets the facility that will be used for syslog.
@@ -182,22 +182,22 @@
 # enableGlobalAccessLog (boolean)
 #     DESC: If enabled, all *open* and *close* logs will be written to ``/home/logkeeper/global-log-YYYYMM.log``. Those are also logged through syslog if *enableSyslog* is set.
 #  DEFAULT: true
-"enableGlobalAccessLog": "<%= node['ovh_the_bastion']['config']['enableGlobalAccessLog'] %>",
+"enableGlobalAccessLog": <%= node['ovh_the_bastion']['config']['enableGlobalAccessLog'] %>,
 #
 # enableAccountAccessLog (boolean)
 #     DESC: If enabled, all *open* and *close* logs will be written to the corresponding user's home in ``/home/USER/USER-log-YYYYMM.log``. Those are also logged through syslog if *enableSyslog* is set.
 #  DEFAULT: true
-"enableAccountAccessLog": "<%= node['ovh_the_bastion']['config']['enableAccountAccessLog'] %>",
+"enableAccountAccessLog": <%= node['ovh_the_bastion']['config']['enableAccountAccessLog'] %>,
 #
 # enableGlobalSqlLog (boolean)
 #     DESC: If enabled, all access logs (corresponding to the *open* and *close* events) will be written in a short SQL format, as one row per access, to ``/home/logkeeper/global-log-YYYYMM.sqlite``.
 #  DEFAULT: true
-"enableGlobalSqlLog": "<%= node['ovh_the_bastion']['config']['enableGlobalSqlLog'] %>",
+"enableGlobalSqlLog": <%= node['ovh_the_bastion']['config']['enableGlobalSqlLog'] %>,
 #
 # enableAccountSqlLog (boolean)
 #     DESC: If enabled, all access logs (corresponding to the *open* and *close* events) will be written in a detailed SQL format, as one row per access, in the corresponding user's home to ``/home/USER/USER-log-YYYYMM.sqlite``. If you want to use ``selfListSessions`` and/or ``selfPlaySession``, this is required.
 #  DEFAULT: true
-"enableAccountSqlLog": "<%= node['ovh_the_bastion']['config']['enableAccountSqlLog'] %>",
+"enableAccountSqlLog": <%= node['ovh_the_bastion']['config']['enableAccountSqlLog'] %>,
 #
 # ttyrecFilenameFormat (string)
 #    DESC: Sets the filename format of the output files of ttyrec for a given session. Magic tokens are: ``&bastionname``, ``&uniqid``, ``&account``, ``&ip``, ``&port``, ``&user`` (they'll be replaced by the corresponding values of the current session). Then, this string (automatically prepended with the correct folder) will be passed to ttyrec's ``-F`` parameter, which uses ``strftime()`` to expand it, so the usual character conversions will be done (``%Y`` for the year, ``%H`` for the hour, etc., see ``man strftime``). Note that in a addition to the usual ``strftime()`` conversion specifications, ttyrec also supports ``#usec#``, to be replaced by the current microsecond value of the time.
@@ -224,7 +224,7 @@
 #          If set to ``true``, any user-specified ``from="..."`` will override the value set in ``ingressKeysFrom`` (if any).
 #          Note that when no user-specified ``from="..."`` appears, the value of ``ingressKeysFrom`` is still used, regardless of this option.
 # DEFAULT: false
-"ingressKeysFromAllowOverride": "<%= node['ovh_the_bastion']['config']['ingressKeysFromAllowOverride'] %>",
+"ingressKeysFromAllowOverride": <%= node['ovh_the_bastion']['config']['ingressKeysFromAllowOverride'] %>,
 #
 #########################
 # > Other egress policies
@@ -243,17 +243,17 @@
 # keyboardInteractiveAllowed (boolean)
 #     DESC: If set to ``true``, will allow keyboard-interactive authentication when publickey auth is requested for egress connections, this is needed e.g. for 2FA.
 #  DEFAULT: true
-"keyboardInteractiveAllowed": "<%= node['ovh_the_bastion']['config']['keyboardInteractiveAllowed'] %>",
+"keyboardInteractiveAllowed": <%= node['ovh_the_bastion']['config']['keyboardInteractiveAllowed'] %>,
 #
 # passwordAllowed (boolean)
 #     DESC: If set to ``true``, will allow password authentication for egress ssh, so that user can type his remote password interactively.
 #  DEFAULT: false
-"passwordAllowed": "<%= node['ovh_the_bastion']['config']['passwordAllowed'] %>",
+"passwordAllowed": <%= node['ovh_the_bastion']['config']['passwordAllowed'] %>,
 #
 # telnetAllowed (boolean)
 #     DESC: If set to ``true``, will allow telnet egress connections (``-e`` / ``--telnet``).
 #  DEFAULT: false
-"telnetAllowed": "<%= node['ovh_the_bastion']['config']['telnetAllowed'] %>",
+"telnetAllowed": <%= node['ovh_the_bastion']['config']['telnetAllowed'] %>,
 #
 ####################
 # > Session policies
@@ -262,7 +262,7 @@
 # displayLastLogin (boolean)
 #     DESC: If ``true``, display their last login information on connection to your users.
 #  DEFAULT: true
-"displayLastLogin": "<%= node['ovh_the_bastion']['config']['displayLastLogin'] %>",
+"displayLastLogin": <%= node['ovh_the_bastion']['config']['displayLastLogin'] %>,
 #
 # fanciness (string)
 #     DESC: Customize to which extent the text output by the program will use decorations to enhance human-friendliness and highlight warnings or critical messages. Note that if a given session's terminal doesn't advertise UTF-8 support, UTF-8 will not be used, regardless of what is set here.
