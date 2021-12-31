@@ -11,6 +11,8 @@ provisioner:
   name: dokken
   chef_license: accept-no-persist
   data_bags_path: "./test/integration/data_bags"
+  multiple_converge: 2
+  enforce_idempotency: 1
 
 verifier:
   name: inspec
