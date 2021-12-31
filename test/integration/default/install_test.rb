@@ -17,7 +17,7 @@ end
 
 describe bash('cd /opt/bastion && git status') do
   its('exit_status') { should eq 0 }
-  its('stdout') { should match /HEAD detached at v3.01.02/ }
+  its('stdout') { should match /HEAD detached at v3.07.00/ }
 end
 
 describe bash('/opt/bastion/bin/dev/perl-check.sh') do
