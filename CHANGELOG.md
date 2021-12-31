@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+<a name="v2.0.0"></a>
+## [v2.0.0] - 2021-12-31
+
+### Added
+- Support for Debian 11
+
+### Changed
+- ovh/the-bastion version upgraded to 3.07.00 (was 3.01.02).
+- CI now checks cookbook idempotence.
+- CI now uses the latest version of ovh/the-bastion
+
+### Removed
+- Support for Chef Infra client < 15.3.
 
 <a name="v1.1.0"></a>
 ## [v1.1.0] - 2020-12-12
