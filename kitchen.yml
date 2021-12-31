@@ -31,9 +31,6 @@ platforms:
   - name: debian-9
     driver:
       image: dokken/debian-9
-  - name: debian-8
-    driver:
-      image: dokken/debian-8
   - name: centos-8
     driver:
       image: dokken/centos-8
