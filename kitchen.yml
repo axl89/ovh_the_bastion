@@ -22,6 +22,9 @@ platforms:
   - name: amazonlinux-2
     driver:
       image: dokken/amazonlinux-2
+  - name: debian-11
+    driver:
+      image: dokken/debian-11
   - name: debian-10
     driver:
       image: dokken/debian-10
