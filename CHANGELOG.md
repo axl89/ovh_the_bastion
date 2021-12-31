@@ -20,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Support for Chef Infra client < 15.3.
-- Ubuntu 16.04 from CI because it's no longer supported by Chef Omnitruck (see [ci job](https://app.circleci.com/pipelines/github/axl89/ovh_the_bastion/46/workflows/21982cdf-84e8-4f62-98d6-506746cfc7b7/jobs/143)).
 
 <a name="v1.1.0"></a>
 ## [v1.1.0] - 2020-12-12
