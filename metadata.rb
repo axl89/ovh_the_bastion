@@ -4,7 +4,7 @@ maintainer_email 'axl89@users.noreply.github.com'
 license 'GPL-3.0'
 description 'Installs and configures ovh/the-bastion software'
 version '1.1.0'
-chef_version '>= 14.0'
+chef_version '>= 15.3'
 
 supports 'debian', '>= 8.0'
 supports 'centos', '>= 7.0'
