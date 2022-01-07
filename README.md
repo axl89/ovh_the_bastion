@@ -12,12 +12,12 @@ Installs [ovh/the-bastion] and sets up its [default configuration].
 
 ### Platforms
 
-- Debian 8+
-- Ubuntu 14.04+
+- Debian 9+
+- Ubuntu 16.04+
 - RHEL 7.x and 8.x
 - Amazon Linux 2 (EPEL is enabled as required)
 - CentOS 7.x, 8.x
-- OpenSUSE Leap 15.x
+- OpenSUSE Leap 15.2+
 
 ### Cookbooks
 
