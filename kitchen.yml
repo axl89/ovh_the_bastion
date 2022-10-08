@@ -46,9 +46,13 @@ platforms:
   - name: ubuntu-22.04
     driver:
       image: dokken/ubuntu-22.04
-  - name: opensuse-leap-15
+  - name: opensuse-leap-15.3
     driver:
-      image: dokken/opensuse-leap-15
+      image: dokken/opensuse-leap-15.3
+      pid_one_command: /usr/lib/systemd/systemd
+  - name: opensuse-leap-15.4
+    driver:
+      image: dokken/opensuse-leap-15.4
       pid_one_command: /usr/lib/systemd/systemd
 suites:
   - name: default
