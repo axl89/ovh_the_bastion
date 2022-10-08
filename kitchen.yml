@@ -47,7 +47,6 @@ platforms:
   - name: opensuse-leap-15.4
     driver:
       image: dokken/opensuse-leap-15.4
-      pid_one_command: /usr/lib/systemd/systemd
 suites:
   - name: default
     run_list:
