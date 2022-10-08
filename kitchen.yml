@@ -19,6 +19,12 @@ verifier:
   deprecations_as_errors: true
 
 platforms:
+  - name: rockylinux-8
+    driver:
+      image: dokken/rockylinux-8
+  - name: rockylinux-9
+    driver:
+      image: dokken/rockylinux-9
   - name: centos-stream-8
     driver:
       image: dokken/centos-stream-8
