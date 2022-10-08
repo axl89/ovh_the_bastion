@@ -37,9 +37,6 @@ platforms:
   - name: debian-10
     driver:
       image: dokken/debian-10
-  - name: debian-9
-    driver:
-      image: dokken/debian-9
   - name: ubuntu-18.04
     driver:
       image: dokken/ubuntu-18.04
