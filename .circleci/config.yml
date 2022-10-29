@@ -1,31 +1,10 @@
 ---
 version: 2.1
 orbs:
-  kitchen: sous-chefs/kitchen@2.1.1
-jobs:
-  cookstyle:
-    docker:
-      - image: chef/chefdk:4.9.17
-    steps:
-      - checkout
-      - run: chef env --chef-license accept-silent
-      - run: chef exec cookstyle .
-  foodcritic:
-    docker:
-      - image: chef/chefdk:4.9.17
-    steps:
-      - checkout
-      - run: chef env --chef-license accept-silent
-      - run: chef exec foodcritic .
-
+  kitchen: sous-chefs/kitchen@2
 workflows:
-  test:
+  danger:
     jobs:
-      # Lint and Unit Test
-      - kitchen/yamllint:
-          name: lint-yaml
-      - kitchen/dokken-single:
-          name: dokken-single
-          suite: default
-      - cookstyle
-      - foodcritic
+      - kitchen/danger:
+          name: danger
+          context: Danger-Minimal
