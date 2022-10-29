@@ -19,6 +19,9 @@ verifier:
   deprecations_as_errors: true
 
 platforms:
+  - name: centos-stream-8
+    driver:
+      image: dokken/centos-stream-8
   - name: amazonlinux-2
     driver:
       image: dokken/amazonlinux-2
@@ -28,30 +31,22 @@ platforms:
   - name: debian-10
     driver:
       image: dokken/debian-10
-  - name: debian-9
-    driver:
-      image: dokken/debian-9
-  - name: centos-8
-    driver:
-      image: dokken/centos-8
-      pid_one_command: /usr/lib/systemd/systemd
-  - name: centos-7
-    driver:
-      image: dokken/centos-7
-      pid_one_command: /usr/lib/systemd/systemd
-  - name: ubuntu-16.04
-    driver:
-      image: dokken/ubuntu-16.04
   - name: ubuntu-18.04
     driver:
       image: dokken/ubuntu-18.04
   - name: ubuntu-20.04
     driver:
       image: dokken/ubuntu-20.04
-  - name: opensuse-leap-15
+  - name: ubuntu-22.04
     driver:
-      image: dokken/opensuse-leap-15
+      image: dokken/ubuntu-22.04
+  - name: opensuse-leap-15.3
+    driver:
+      image: dokken/opensuse-leap-15.3
       pid_one_command: /usr/lib/systemd/systemd
+  - name: opensuse-leap-15.4
+    driver:
+      image: dokken/opensuse-leap-15.4
 suites:
   - name: default
     run_list:

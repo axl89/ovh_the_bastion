@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+<a name="v3.0.0"></a>
+## [v3.0.0] - 2022-10-29
+
+### Added
+- Support for CentOS stream 8, Ubuntu 22.04,
+OpenSUSE Leap 15.3 and 15.4.
+
+### Removed
+- Support for CentOS 7, 8, Ubuntu 16.04,
+OpenSUSE Leap < 15.3
+
+### Changed
+- ovh/the-bastion version upgraded to 3.08.00 (was 3.07.00).
+
 <a name="v2.0.2"></a>
 ## [v2.0.2] - 2021-12-31
 
@@ -134,7 +148,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Chef Workflow files
 
 
-[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.2...main
+[Unreleased]: https://github.com/axl89/ovh_the_bastion/compare/v3.0.0...main
+[v3.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.2...v3.0.0
 [v2.0.2]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/axl89/ovh_the_bastion/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/axl89/ovh_the_bastion/compare/v1.1.0...v2.0.0

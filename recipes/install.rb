@@ -24,15 +24,31 @@ path = node['ovh_the_bastion']['path']
 
 include_recipe 'yum-epel' if platform?('amazon')
 
+execute 'enable powertools' do
+  live_stream true
+  command 'dnf config-manager --set-enabled powertools -y'
+  action :nothing
+  only_if { platform?('centos', 'rocky') }
+end
+
 apt_update 'all platforms' do
   action :nothing
   only_if { platform_family?('debian') }
 end
 
+# Base packages requires
+packages = %w(git curl)
+
+# Add specific requires packages for CentOS and Rocky OS
+if platform?('centos')
+  packages.append('epel-release')
+end
+
 ## Install git, curl
-package %w(git curl) do
+package packages do
   action :install
   notifies :update, 'apt_update[all platforms]', :before
+  notifies :run, 'execute[enable powertools]', :before
 end
 
 ## Download the bastion

@@ -3,14 +3,14 @@ maintainer 'Axel Amigo'
 maintainer_email 'axl89@users.noreply.github.com'
 license 'GPL-3.0'
 description 'Installs and configures ovh/the-bastion software'
-version '2.0.2'
+version '3.0.0'
 chef_version '>= 15.3'
 
-supports 'debian', '>= 9.0'
-supports 'centos', '>= 7.0'
+supports 'debian', '>= 10.0'
+supports 'centos', '>= 8.0'
 supports 'redhat', '>= 7.0'
-supports 'ubuntu', '>= 16.04'
-supports 'opensuseleap', '>= 15.2'
+supports 'ubuntu', '>= 18.04'
+supports 'opensuseleap', '>= 15.3'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
