@@ -5,14 +5,14 @@ orbs:
 jobs:
   cookstyle:
     docker:
-      - image: chef/chefdk:4.9.17
+      - image: chef/chef:current
     steps:
       - checkout
       - run: chef env --chef-license accept-silent
       - run: chef exec cookstyle .
   foodcritic:
     docker:
-      - image: chef/chefdk:4.9.17
+      - image: chef/chef:current
     steps:
       - checkout
       - run: chef env --chef-license accept-silent
