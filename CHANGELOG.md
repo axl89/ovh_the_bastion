@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 <a name="v3.0.0"></a>
-## [v2.0.2] - 2022-10-29
+## [v3.0.0] - 2022-10-29
 
 ### Added
 - Support for CentOS stream 8, Ubuntu 22.04,
